@@ -3,6 +3,7 @@ executorType: docker
 containerInfo:
   - image: markupglasgow/php:7.1-cli-composer
     cmd: ["/bin/bash"]
+  - image: redis:3.0-alpine
 stages:
   build:
     workDir: ~/home
@@ -14,6 +15,11 @@ stages:
         shell: /bin/bash
         command: |
             composer install --no-interaction --no-progress
+       # Tests
+      - type: shell
+        shell: /bin/bash
+        command: |
+            vendor/bin/phpunit --testsuite=standard
        # Tests
       - type: shell
         shell: /bin/bash
