@@ -38,6 +38,5 @@
         "tests/functional/StatusBundle"
       ]
     }
-  },
-  "target-dir": "Markup/StatusBundle"
+  }
 }
