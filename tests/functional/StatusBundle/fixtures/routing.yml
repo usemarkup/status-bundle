@@ -1,0 +1,3 @@
+MarkupStatusBundle:
+    resource: '@MarkupStatusBundle/Resources/config/routing.yml'
+    prefix: /status

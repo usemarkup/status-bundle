@@ -1,0 +1,36 @@
+version: 2
+executorType: docker
+containerInfo:
+  - image: markupglasgow/php:7.1-cli-composer
+    cmd: ["/bin/bash"]
+stages:
+  build:
+    workDir: ~/home
+    steps:
+      # Checkout the repo
+      - type: checkout
+      # Composer install
+      - type: shell
+        shell: /bin/bash
+        command: |
+            composer install --no-interaction --no-progress
+       # Tests
+      - type: shell
+        shell: /bin/bash
+        command: |
+            vendor/bin/phpunit --testsuite=functional
+       # PHP Stan
+      - type: shell
+        shell: /bin/bash
+        command: |
+            vendor/bin/phpstan analyse -c phpstan.neon -l 5 src/
+       # PHP
+      - type: shell
+        shell: /bin/bash
+        command: |
+            vendor/bin/phpcs --standard=ruleset.xml src/
+       # PHPmd
+      - type: shell
+        shell: /bin/bash
+        command: |
+            vendor/bin/phpmd src/ text cleancode, codesize, controversial, design, naming, unusedcode

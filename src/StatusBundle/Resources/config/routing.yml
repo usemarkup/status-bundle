@@ -1,0 +1,5 @@
+# This is an example only really. I would personally not have a /ping endpoint in your application
+markup_status_ping:
+    path: /ping
+    defaults: { _controller: MarkupStatusBundle:Ping:index }
+    methods: [HEAD]

@@ -1,0 +1,27 @@
+services:
+    markup_status.registry.container_aware_group_registry:
+        class: Markup\StatusBundle\Registry\ContainerAwareGroupRegistry
+        calls:
+            - [ 'setContainer', ['@service_container'] ]
+        public: false
+
+    markup_status.registry.container_aware_check_registry:
+        class: Markup\StatusBundle\Registry\ContainerAwareCheckRegistry
+        calls:
+            - [ 'setContainer', ['@service_container'] ]
+        public: false
+
+    markup_status.repository.group_repository:
+        class: Markup\StatusBundle\Repository\GroupRepository
+        arguments:
+            - '@markup_status.registry.container_aware_group_registry'
+
+    markup_status.repository.check_repository:
+        class: Markup\StatusBundle\Repository\CheckRepository
+        arguments:
+            - '@markup_status.registry.container_aware_check_registry'
+
+    markup_status.runner.container_aware_runner:
+        class: Markup\StatusBundle\Runner\Runner
+        arguments:
+            - '@markup_status.repository.check_repository'

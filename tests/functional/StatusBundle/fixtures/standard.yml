@@ -1,0 +1,28 @@
+parameters:
+    locale: en
+    secret: secret
+
+framework:
+    secret: '%secret%'
+    router:
+        resource: '%kernel.root_dir%/../fixtures/routing.yml'
+        strict_requirements: ~
+    default_locale: '%locale%'
+    http_method_override: true
+    php_errors:
+        log: true
+    test: true
+
+services:
+    my_awesome_check_service:
+        class: Markup\StatusBundle\Check\NoopCheck
+        tags:
+            - { name: 'status.check' }
+
+markup_status:
+    groups:
+        ping:
+            checks:
+                - noop.check
+            options:
+                shared_max_age: 69
