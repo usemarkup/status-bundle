@@ -13,4 +13,9 @@ interface ResultInterface
      * @return ResultContextInterface|null
      */
     public function getContext(): ?ResultContextInterface;
+
+    /**
+     * @return string
+     */
+    public function getCheckName(): string;
 }

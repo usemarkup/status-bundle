@@ -6,7 +6,7 @@ use Markup\Test\StatusBundle\TestKernel;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\Config\Loader\LoaderInterface;
 
-class PingControllerTest extends WebTestCase
+class HeadControllerTest extends WebTestCase
 {
     protected static function createKernel(array $options = [])
     {
@@ -28,7 +28,19 @@ class PingControllerTest extends WebTestCase
         $response = $client->getResponse();
 
         $this->assertEquals(200, $response->getStatusCode());
-        $this->assertEquals('pong', $response->headers->get('X-Status'));
+        $this->assertEquals('Ok', $response->headers->get('X-Status'));
         $this->assertEquals(69, $response->getTtl());
+    }
+
+    public function testRedis()
+    {
+        $client = static::createClient();
+        $crawler = $client->request('HEAD', '/status/basic');
+
+        $response = $client->getResponse();
+
+        $this->assertEquals(200, $response->getStatusCode());
+        $this->assertEquals('Ok', $response->headers->get('X-Status'));
+        $this->assertEquals(120, $response->getTtl());
     }
 }

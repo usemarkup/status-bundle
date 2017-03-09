@@ -18,6 +18,12 @@ services:
         class: Markup\StatusBundle\Check\NoopCheck
         tags:
             - { name: 'status.check' }
+    redis_check:
+        class: Markup\StatusBundle\Check\RedisCheck
+        arguments:
+            - 'redis://127.0.0.1:6379/0'
+        tags:
+            - { name: 'status.check' }
 
 markup_status:
     groups:
@@ -26,3 +32,8 @@ markup_status:
                 - noop.check
             options:
                 shared_max_age: 69
+        basic:
+            checks:
+                - redis.check
+            options:
+                shared_max_age: 120

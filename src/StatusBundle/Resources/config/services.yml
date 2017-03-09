@@ -21,7 +21,7 @@ services:
         arguments:
             - '@markup_status.registry.container_aware_check_registry'
 
-    markup_status.runner.container_aware_runner:
+    markup_status.runner:
         class: Markup\StatusBundle\Runner\Runner
         arguments:
             - '@markup_status.repository.check_repository'

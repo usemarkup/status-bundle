@@ -12,7 +12,7 @@ class NoopCheck implements CheckInterface
      */
     public function doCheck(): ResultInterface
     {
-        return new SuccessfulResult();
+        return new SuccessfulResult($this->getName());
     }
 
     /**

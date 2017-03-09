@@ -35,12 +35,12 @@ class RedisCheck implements CheckInterface
             $result = $predis->executeCommand($command);
 
             if ($result instanceof Status && $result->getPayload() === 'PONG') {
-                return new SuccessfulResult();
+                return new SuccessfulResult($this->getName());
             }
         } catch (\Throwable $e) {
         }
 
-        return new FailedResult();
+        return new FailedResult($this->getName());
     }
 
     /**
