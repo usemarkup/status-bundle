@@ -2,6 +2,8 @@
 
 [![CircleCI](https://circleci.com/gh/usemarkup/status-bundle/tree/master.svg?style=svg)](https://circleci.com/gh/usemarkup/status-bundle/tree/master)
 
+https://packagist.org/packages/markup/status-bundle
+
 Allows for 'checks' to be created to ensure services are working e.g. redis, mysql & rabbitmq.
 The configuration allows for groups of checks to be performed by a runner and reported back.
 
