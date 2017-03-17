@@ -10,5 +10,5 @@ interface CheckRepositoryInterface
      * @param string $name
      * @return CheckInterface|null
      */
-    public function getByCheckName(string $name): ?CheckInterface;
+    public function getByCheckName(string $name)/*: ?CheckInterface php7.1*/;
 }

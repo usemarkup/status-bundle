@@ -8,7 +8,7 @@ interface GroupRepositoryInterface
 {
     /**
      * @param string $name
-     * @return Group
+     * @return Group|null
      */
-    public function getByGroupName(string $name): ?Group;
+    public function getByGroupName(string $name)/*: ?Group php7.1*/;
 }

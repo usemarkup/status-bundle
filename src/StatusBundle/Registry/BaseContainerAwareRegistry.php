@@ -23,7 +23,7 @@ abstract class BaseContainerAwareRegistry implements ContainerAwareInterface
      * @param string $name
      * @param string $serviceId
      */
-    public function add(string $name, string $serviceId): void
+    public function add(string $name, string $serviceId)/*: void php7.1*/
     {
         $this->registry[$name] = $serviceId;
     }

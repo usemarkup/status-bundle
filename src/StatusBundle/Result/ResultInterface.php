@@ -12,7 +12,7 @@ interface ResultInterface
     /**
      * @return ResultContextInterface|null
      */
-    public function getContext(): ?ResultContextInterface;
+    public function getContext()/*: ?ResultContextInterface php7.1 */;
 
     /**
      * @return string

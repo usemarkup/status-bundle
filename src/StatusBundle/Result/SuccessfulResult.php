@@ -33,7 +33,7 @@ class SuccessfulResult implements ResultInterface
     /**
      * @inheritdoc
      */
-    public function getContext(): ?ResultContextInterface
+    public function getContext()/*: ?ResultContextInterface php71*/
     {
         return null;
     }

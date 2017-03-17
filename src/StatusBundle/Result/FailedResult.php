@@ -33,7 +33,7 @@ class FailedResult implements ResultInterface
     /**
      * @inheritdoc
      */
-    public function getContext(): ?ResultContextInterface
+    public function getContext()/*: ?ResultContextInterface php7.1*/
     {
         return null;
     }

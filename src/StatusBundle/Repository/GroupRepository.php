@@ -23,7 +23,7 @@ class GroupRepository implements GroupRepositoryInterface
     /**
      * {@inheritdoc}
      */
-    public function getByGroupName(string $name): ?Group
+    public function getByGroupName(string $name)/*: ?Group php7.1*/
     {
         if (!$this->groupRegistry->has($name)) {
             return null;

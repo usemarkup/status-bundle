@@ -1,7 +1,7 @@
 version: 2
 executorType: docker
 containerInfo:
-  - image: markupglasgow/php:7.1-cli-composer
+  - image: markupglasgow/php:7.0-cli-composer
     cmd: ["/bin/bash"]
   - image: redis:3.0-alpine
 stages:

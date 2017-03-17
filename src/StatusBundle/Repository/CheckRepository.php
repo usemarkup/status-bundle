@@ -20,7 +20,7 @@ class CheckRepository implements CheckRepositoryInterface
     /**
      * {@inheritdoc}
      */
-    public function getByCheckName(string $name): ?CheckInterface
+    public function getByCheckName(string $name)/*: ?CheckInterface php7.1*/
     {
         if (!$this->checkRegistry->has($name)) {
             return null;
