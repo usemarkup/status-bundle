@@ -20,6 +20,9 @@ class StatusController extends Controller
             ]
         );
 
+        // We want to ensure nothing will allow stale content to be served
+        $response->mustRevalidate();
+
         /** @var GroupRepositoryInterface $groupRepository */
         $groupRepository = $this->get('markup_status.repository.group_repository');
         $group = $groupRepository->getByGroupName($group);
