@@ -10,10 +10,7 @@ use Psr\Log\NullLogger;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
-/**
- * This is used for HEAD requests, so no content body is ever set.
- */
-class HeadController extends Controller
+class StatusController extends Controller
 {
     public function indexAction(string $group): Response
     {
@@ -51,7 +48,7 @@ class HeadController extends Controller
                 $logger->critical(
                     sprintf(
                         'Status group %s returned a failed status for %s check',
-                        $group,
+                        $group->getName(),
                         $result->getCheckName()
                     ),
                     [
