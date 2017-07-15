@@ -6,7 +6,7 @@ use Markup\Test\StatusBundle\TestKernel;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\Config\Loader\LoaderInterface;
 
-class HeadControllerTest extends WebTestCase
+class StatusControllerTest extends WebTestCase
 {
     protected static function createKernel(array $options = [])
     {
